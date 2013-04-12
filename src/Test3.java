@@ -12,7 +12,7 @@ import com.google.common.io.Files;
 public class Test3 {
 
 	public static void main(String[] args) throws IOException {
-		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(20, 0.5, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE));
+		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(20, 50/(double)20, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE));
 		BufferedReader newReader = Files.newReader(new File("test_data/sample.txt"), Charsets.UTF_8);
 		String temp =null ;
 		int i = 0 ;
@@ -23,6 +23,6 @@ public class Test3 {
 			}
 		}
 
-		lda.trainAndSave("result3/", "utf-8") ;
+		lda.trainAndSave("result/news/", "utf-8") ;
 	}
 }

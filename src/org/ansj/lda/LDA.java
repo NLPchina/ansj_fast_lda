@@ -36,7 +36,7 @@ public class LDA {
 	 */
 	public LDA(int topicNum) {
 		this.analysis = AnsjAnalysis.DEFAUlT;
-		this.ldaAModel = new LDAGibbsModel(topicNum, 0.5, 0.1, 10000, Integer.MAX_VALUE, Integer.MAX_VALUE);
+		this.ldaAModel = new LDAGibbsModel(topicNum, 50/(double)topicNum, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE);
 	}
 
 	/**
