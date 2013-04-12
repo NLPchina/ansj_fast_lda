@@ -1,7 +1,0 @@
-alpha = 0.5
-topicNum = 10
-docNum = 116666
-termNum = 10976
-iterations = 20
-saveStep = 2147483647
-beginSaveIters = 2147483647
