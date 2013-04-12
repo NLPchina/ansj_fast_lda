@@ -2,7 +2,7 @@
 .project
 .settings/
 .DS_Store
-/bin
+bin/
 .git
-/result
-/test_data/computer.txt
+result/
+test_data/computer.txt
