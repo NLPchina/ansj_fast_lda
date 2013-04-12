@@ -123,11 +123,11 @@ public abstract class LDAModel {
 			if ((i >= beginSaveIters) && (((i - beginSaveIters) % saveStep) == 0)) {
 				saveModel(i + "", modelPath, charset);
 			}
-		}
-
-		for (Doc doc : docs) {
-			for (Vector vector : doc.vectors) {
-				sampleTopic(doc, vector);
+			System.out.println("iteration:\t" + i);
+			for (Doc doc : docs) {
+				for (Vector vector : doc.vectors) {
+					sampleTopic(doc, vector);
+				}
 			}
 		}
 
@@ -234,7 +234,7 @@ public abstract class LDAModel {
 					break;
 				}
 				pollFirst = mmp.pollFirst();
-				writer.write("\t"+vectorMap.inverse().get(pollFirst.id) + " " + pollFirst.score + "\n");
+				writer.write("\t" + vectorMap.inverse().get(pollFirst.id) + " " + pollFirst.score + "\n");
 			}
 			writer.write("\n");
 		}
@@ -250,7 +250,6 @@ public abstract class LDAModel {
 
 		for (int i = 0; i < 2; i++) {
 			System.out.println(mmp.pollFirst().id);
-			;
 		}
 
 	}

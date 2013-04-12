@@ -1,16 +1,9 @@
 package org.ansj.lda.impl;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.ansj.lda.LDAModel;
 import org.ansj.lda.pojo.Doc;
 import org.ansj.lda.pojo.Topic;
 import org.ansj.lda.pojo.Vector;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.Ordering;
-import com.google.common.primitives.Ints;
 
 public class LDAGibbsModel extends LDAModel {
 

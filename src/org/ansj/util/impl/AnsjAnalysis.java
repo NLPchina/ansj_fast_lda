@@ -93,7 +93,7 @@ public class AnsjAnalysis implements Analysis {
 			return true;
 		}
 		String natureStr = term.getNatrue().natureStr;
-		if (natureStr == null || "en".equals(natureStr) || "w".equals(natureStr) || "m".equals(natureStr)) {
+		if (natureStr == null || "w".equals(natureStr) || "m".equals(natureStr)) {
 			return true;
 		}
 		if (term.getName().length() == 1) {

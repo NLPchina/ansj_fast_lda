@@ -23,6 +23,6 @@ public class Test3 {
 			}
 		}
 
-		lda.trainAndSave("result/", "utf-8") ;
+		lda.trainAndSave("result3/", "utf-8") ;
 	}
 }

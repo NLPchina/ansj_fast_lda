@@ -1,25 +1,28 @@
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 
 import org.ansj.lda.LDA;
 import org.ansj.lda.impl.LDAGibbsModel;
-import org.ansj.util.impl.AnsjAnalysis;
+import org.ansj.util.Analysis;
+import org.ansj.util.impl.DicAnalysis;
+
+import com.google.common.base.Charsets;
+import com.google.common.io.Files;
 
 public class Test2 {
-	public static void main(String[] args) throws IOException {
-		File file = new File("/Users/ansj/Desktop/搜索组分享/文本分类语料库");
-		LDA lda = new LDA(AnsjAnalysis.DEFAUlT, new LDAGibbsModel(20, 0.5, 0.1, 2000, Integer.MAX_VALUE, Integer.MAX_VALUE));
-		for (File dir : file.listFiles()) {
-			if (dir.isHidden() || !dir.isDirectory()) {
-				continue;
-			}
-			for (File doc : dir.listFiles()) {
-				if (doc.canRead() && doc.getName().toLowerCase().endsWith(".txt")) {
-					lda.addDoc(doc, "gb2312");
-				}
-			}
+	public static void main(String[] args) throws Exception {
+	
+		Analysis dicAnalysis = DicAnalysis.getInstance(new File("library/result_1_3.dic"), "UTF-8");
+	
+		LDA lda = new LDA(dicAnalysis, new LDAGibbsModel(10, 0.5, 0.1, 20, Integer.MAX_VALUE, Integer.MAX_VALUE));
+//		BufferedReader newReader = Files.newReader(new File("test_data/computer.txt"), Charsets.UTF_8);
+		BufferedReader newReader = Files.newReader(new File("/Users/ansj/Documents/temp/computer_300000.txt"), Charsets.UTF_8);
+		
+		String temp = null;
+		while ((temp = newReader.readLine()) != null) {
+			lda.addDoc(temp);
 		}
 
-		lda.trainAndSave("result2", "utf-8");
+		lda.trainAndSave("result/computer", "utf-8");
 	}
 }
