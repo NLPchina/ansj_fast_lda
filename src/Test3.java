@@ -17,8 +17,8 @@ public class Test3 {
 		String temp =null ;
 		int i = 0 ;
 		while((temp=newReader.readLine())!=null){
-			lda.addDoc(temp) ;
-			if(i++>1000){
+			lda.addDoc(String.valueOf(++i),temp) ;
+			if(i>1000){
 				break ;
 			}
 		}

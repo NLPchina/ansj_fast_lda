@@ -85,11 +85,12 @@ public abstract class LDAModel {
 
 	/**
 	 * 增加文章
+	 * @param name 
 	 * 
 	 * @param words
 	 */
-	public void addDoc(List<String> words) {
-		Doc doc = new Doc(topicNum);
+	public void addDoc(String name, List<String> words) {
+		Doc doc = new Doc(name,topicNum);
 		Integer id = null;
 		int topicId = 0;
 		dCount++;
@@ -195,6 +196,7 @@ public abstract class LDAModel {
 		// lda.theta M*K
 		writer = Files.newWriter(new File(modelDir, modelName + ".theta"), charset);
 		for (int i = 0; i < dCount; i++) {
+			writer.write(docs.get(i).getName()+"\t") ;
 			writer.write(Joiner.on("\t").join(Doubles.asList(theta[i])));
 			writer.write(LINEC);
 		}
@@ -207,6 +209,7 @@ public abstract class LDAModel {
 		Vector vector = null;
 		for (int m = 0; m < dCount; m++) {
 			doc = docs.get(m);
+			writer.write(doc.getName()+"\t") ;
 			for (int n = 0; n < doc.vectors.size(); n++) {
 				vector = doc.vectors.get(n);
 				writer.write(vector.id + ":" + vector.topicId + "\t");

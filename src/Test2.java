@@ -18,8 +18,9 @@ public class Test2 {
 		BufferedReader newReader = Files.newReader(new File("/Users/ansj/Documents/temp/computer_300000.txt"), Charsets.UTF_8);
 		
 		String temp = null;
+		int id = 0 ;
 		while ((temp = newReader.readLine()) != null) {
-			lda.addDoc(temp);
+			lda.addDoc(String.valueOf(++id),temp);
 		}
 
 		lda.trainAndSave("result/computer", "utf-8");

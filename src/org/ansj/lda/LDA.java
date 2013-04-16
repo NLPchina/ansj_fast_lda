@@ -65,24 +65,24 @@ public class LDA {
 	 * @throws IOException
 	 */
 	public void addDoc(File file, String charset) throws IOException {
-		addDoc(Files.newReader(file, Charset.forName(charset)));
+		addDoc(file.getName(),Files.newReader(file, Charset.forName(charset)));
 	}
 
 	/**
 	 * LDA 根据文本训练,一个文本相当于一个文档
 	 */
-	public void addDoc(String content) {
-		addDoc(new StringReader(content));
+	public void addDoc(String name ,String content) {
+		addDoc(name,new StringReader(content));
 	}
 
 	/**
 	 * LDA 根据文本训练,一个流相当于一个文档
 	 */
-	public void addDoc(Reader reader) {
+	public void addDoc(String name ,Reader reader) {
 		List<String> words = null;
 		try {
 			words = analysis.getWords(reader);
-			ldaAModel.addDoc(words);
+			ldaAModel.addDoc(name,words);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

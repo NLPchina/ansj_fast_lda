@@ -12,7 +12,6 @@ public class FileLDATest {
 			if (dir.isHidden() || !dir.isDirectory()) {
 				continue;
 			}
-
 			for (File file : dir.listFiles()) {
 				if (file.isHidden() || !file.getName().toLowerCase().endsWith(".txt")) {
 					continue;
