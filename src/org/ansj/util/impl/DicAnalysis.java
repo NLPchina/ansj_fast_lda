@@ -2,18 +2,16 @@ package org.ansj.util.impl;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-import love.cq.domain.Forest;
-import love.cq.library.Library;
-import love.cq.splitWord.GetWord;
-import love.cq.util.IOUtil;
-
 import org.ansj.util.Analysis;
+import org.nlpcn.commons.lang.tire.GetWord;
+import org.nlpcn.commons.lang.tire.domain.Forest;
+import org.nlpcn.commons.lang.tire.library.Library;
+import org.nlpcn.commons.lang.util.IOUtil;
 
 public class DicAnalysis implements Analysis {
 

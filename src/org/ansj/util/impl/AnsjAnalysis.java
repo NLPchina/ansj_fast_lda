@@ -11,7 +11,6 @@ import org.ansj.dic.DicReader;
 import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.Analysis;
-import org.ansj.util.recognition.NatureRecognition;
 
 public class AnsjAnalysis implements Analysis {
 
@@ -67,8 +66,7 @@ public class AnsjAnalysis implements Analysis {
 			String temp = null;
 			List<String> all = new ArrayList<String>();
 			while ((temp = br.readLine()) != null) {
-				List<Term> paser = ToAnalysis.paser(temp);
-				new NatureRecognition(paser).recognition();
+				List<Term> paser = ToAnalysis.parse(temp);
 				for (Term term : paser) {
 					if (!filter(term)) {
 						all.add(term.getName());
@@ -92,7 +90,7 @@ public class AnsjAnalysis implements Analysis {
 		if (filter == null) {
 			return true;
 		}
-		String natureStr = term.getNatrue().natureStr;
+		String natureStr = term.natrue().natureStr;
 		if (natureStr == null || "w".equals(natureStr) || "m".equals(natureStr)) {
 			return true;
 		}

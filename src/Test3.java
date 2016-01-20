@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.ansj.lda.LDA;
 import org.ansj.lda.impl.LDAGibbsModel;
@@ -13,7 +14,7 @@ public class Test3 {
 
 	public static void main(String[] args) throws IOException {
 		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(20, 50/(double)20, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE));
-		BufferedReader newReader = Files.newReader(new File("test_data/sample.txt"), Charsets.UTF_8);
+		BufferedReader newReader = Files.newReader(new File("test_data/corpus.txt"), Charsets.UTF_8);
 		String temp =null ;
 		int i = 0 ;
 		while((temp=newReader.readLine())!=null){

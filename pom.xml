@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.nlpcn</groupId>
+	<artifactId>ansj_fast_lda</artifactId>
+	<version>1</version>
+
+
+	<repositories>
+		<repository>
+			<id>mvn-repo</id>
+			<url>http://maven.nlpcn.org/</url>
+		</repository>
+		<repository>
+			<id>os-repo</id>
+			<url>http://maven.oschina.net/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.ansj</groupId>
+			<artifactId>ansj_seg</artifactId>
+			<version>3.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source />
+					<target />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
