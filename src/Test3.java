@@ -13,15 +13,12 @@ import com.google.common.io.Files;
 public class Test3 {
 
 	public static void main(String[] args) throws IOException {
-		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(20, 50/(double)20, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE));
-		BufferedReader newReader = Files.newReader(new File("test_data/corpus.txt"), Charsets.UTF_8);
+		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(12, 50/(double)12, 0.1, 100, Integer.MAX_VALUE, Integer.MAX_VALUE));
+		BufferedReader newReader = Files.newReader(new File("test_data/fl.txt"), Charsets.UTF_8);
 		String temp =null ;
 		int i = 0 ;
 		while((temp=newReader.readLine())!=null){
 			lda.addDoc(String.valueOf(++i),temp) ;
-			if(i>1000){
-				break ;
-			}
 		}
 
 		lda.trainAndSave("result/news/", "utf-8") ;
